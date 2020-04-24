@@ -1,0 +1,98 @@
+---
+title: Tooltip
+description: >
+  A floating label for providing additional information.
+  This helps give the user context for possibly ambiguous
+  interface elements.
+package: '@zendeskgarden/react-tooltips'
+propSheets:
+  - tooltips/src/elements/Tooltip.tsx
+  - tooltips/src/elements/Title.tsx
+  - tooltips/src/elements/Paragraph.tsx
+---
+
+## Examples
+
+### Default
+
+The simplest usage of a Tooltip component.
+
+import TooltipDefault from '../../examples/tooltip/TooltipDefault.tsx';
+import TooltipDefaultCode from '!!raw-loader!../../examples/tooltip/TooltipDefault.tsx';
+
+<CodeExample code={TooltipDefaultCode}>
+  <TooltipDefault />
+</CodeExample>
+
+### Type
+
+Tooltips can be light or dark in type. Small and medium sizes will default
+to dark. Large and extra-large sizes will default to light.
+
+import TooltipType from '../../examples/tooltip/TooltipType.tsx';
+import TooltipTypeCode from '!!raw-loader!../../examples/tooltip/TooltipType.tsx';
+
+<CodeExample code={TooltipTypeCode}>
+  <TooltipType />
+</CodeExample>
+
+### Size
+
+Tooltips can be small, medium, large, or extra-large in size.
+Large and extra-large sizes can contain a Title.
+
+### Placement
+
+There are 13 placement options available. The Tooltip will occupy the top
+position by default. `auto` will position to the placement with the most
+available space.
+
+```text
+                  TOP_START     TOP        TOP_END
+       START_TOP  +------------------------------+  END_TOP
+                  |   ---inline direction --->   |
+                  |  |                           |
+           START  |  | block      * horizontal * |  END
+                  |  | direction  *writing mode* |
+                  |  V                           |
+    START_BOTTOM  +------------------------------+  END_BOTTOM
+                  BOTTOM_START BOTTOM   BOTTOM_END
+```
+
+#### RTL Locales
+
+```text
+                  TOP_END     TOP        TOP_START
+         END_TOP  +------------------------------+  START_TOP
+                  |  <--- inline direction---    |
+                  |  |                           |
+             END  |  | block      * horizontal * |  START
+                  |  | direction  *writing mode* |
+                  |  V                           |
+      END_BOTTOM  +------------------------------+  START_BOTTOM
+                  BOTTOM_END   BOTTOM BOTTOM_START
+```
+
+## Best Practices
+
+### Provide clarification as a secondary layer of information
+
+Use Garden tooltips to display information that goes beyond restating what's
+already present such as usage hints, avatars, email addresses and keyboard
+shortcuts. Users should be able to fully use the product without relying on them.
+
+## Package
+
+<PackageDescription data={props.data.mdx.package} />
+
+## Prop Sheets
+
+<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

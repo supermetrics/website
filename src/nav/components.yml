@@ -8,3 +8,5 @@
       items:
         - id: /components/button
           title: Button
+    - id: /components/tooltip
+      title: Tooltip

@@ -149,7 +149,15 @@ exports.createResolvers = ({ createResolvers, cache }) => {
               propSheet => propSheet.absolutePath
             );
 
-            return parsePropSheet(propSheetAbsolutePaths);
+            return parsePropSheet(propSheetAbsolutePaths)
+              .filter(propSheet => propSheet.displayName !== 'ForwardRefExoticComponent')
+              .map(propSheet => {
+                if (propSheet.description === '@component') {
+                  propSheet.description = '';
+                }
+
+                return propSheet;
+              });
           }
 
           return undefined;

@@ -6,6 +6,7 @@
  */
 
 import React, { createContext, useContext } from 'react';
+import styled from 'styled-components';
 import {
   Table as GardenTable,
   Head,
@@ -21,7 +22,9 @@ const TableHeadContext = createContext(false);
 export const Table = GardenTable;
 export const TBody = Body;
 export const TH = HeaderCell;
-export const TD = Cell;
+export const TD = styled(Cell)`
+  word-break: break-word;
+`;
 
 export const THead: React.FC = props => {
   return (
